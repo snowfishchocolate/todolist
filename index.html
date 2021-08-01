@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/jquery to do list.css">
+    <style>
+        .finish{
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row align-items-start">
+          <div class="col">
+              <nav>
+                <h1>To do list</h1>
+                <div>
+                    <input type="text" class="text">
+                    <input type="date" class="date">
+                    <button type="button" class="btn btn-primary add">add</button>
+                </div>
+              </nav>
+              <table>
+                  <tbody>
+                      <!-- <tr>
+                          <td><input type="checkbox"></td>
+                          <td>買便當</td>
+                          <td>2021-7-30</td>
+                          <td colspan="2">
+                            <button type="button" class="btn btn-success done">完成</button>
+                            <button type="button" class="btn btn-danger delete">刪除</button>
+                          </td>
+                      </tr> -->
+                  </tbody>
+              </table>
+          </div>
+        </div>
+    </div>
+
+    <script>
+$(document).ready(function(){
+    $('.add').click(function(){
+            var inputValue = $('.text').val();
+            var dateValue = $('.date').val();
+            $('.text').val('');
+            $('.date').val('');
+            $('tbody').append(
+        `
+        <tr>
+                <td><input class='checkbox' type="checkbox"></td>
+                <td class=>${inputValue}</td>
+                <td>${dateValue}</td>
+                <td>
+                    <button type="button" class="btn btn-success cancle">取消</button>
+                    <button type="button" class="btn btn-danger delete">刪除</button>
+                </td>
+            </tr>
+        `
+        )
+        $('.delete').each(function(){
+            $(this).click(function(){
+                if(confirm('確定要刪除嗎??')){
+                    $(this).closest('tr').remove();
+                }
+            })
+        })
+        $('.checkbox').each(function(){
+            $('.checkbox').on('change',function(){
+                if($('.checkbox').prop('checked')){
+                    $(this).closest('tr').find('td:eq(1)').addClass('finish');
+                    $(this).closest('tr').find('td:eq(2)').addClass('finish');
+
+                }
+            })
+        })
+        $('.cancle').each(function(){
+            $(this).click(function(){
+                $(this).closest('tr').find('.checkbox').prop('checked',false);
+                $(this).closest('tr').find('td:eq(1)').removeClass('finish');
+                $(this).closest('tr').find('td:eq(2)').removeClass('finish');
+                console.log($(this).closest('tr').find('td:eq(0)'));
+
+            })
+        })
+    })
+})
+    </script>
+</body>
+</html>
