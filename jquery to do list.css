@@ -1,0 +1,50 @@
+body {
+  background-color: #7084C1;
+  margin: 0 auto;
+}
+
+body nav {
+  width: 85%;
+  height: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+body table {
+  width: 50%;
+  height: auto;
+  background-color: white;
+  margin: 0 auto;
+}
+
+body table tr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px 5px;
+  font-size: 20px;
+  border-radius: 20px;
+}
+
+body table tr input {
+  width: 40px;
+  height: 40px;
+}
+/*# sourceMappingURL=jquery to do list.css.map */
