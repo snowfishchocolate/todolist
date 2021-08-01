@@ -1,0 +1,38 @@
+@mixin middle(){
+    margin: 0 auto;
+}
+body{
+    background-color: #7084C1;
+    @include middle();
+    nav{
+        width: 85%;
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        @include middle();
+        h1{
+            
+        }
+    }
+    table{
+        width: 50%;
+        height: auto;
+        background-color: white;
+        @include middle();
+        tr{
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 5px;
+            font-size: 20px;
+            border-radius: 20px;
+            input{
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+}
